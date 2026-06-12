@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelSports — Beach Volleyball</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #f0f0f0;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem; }
+    h1 { font-size: 1.75rem; margin: 0 0 0.25rem; }
+    .tag { color: #ff8c42; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    p { line-height: 1.55; color: #c8d0e0; }
+    .cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0; }
+    a.btn {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .primary { background: #ff6b35; color: #fff; }
+    .secondary { background: #2c3e50; color: #fff; border: 1px solid #4a6070; }
+    .soon { background: #1e2a38; color: #8899aa; border: 1px dashed #4a6070; cursor: default; }
+    ul { color: #a8b8c8; padding-left: 1.25rem; }
+    footer { margin-top: 2rem; font-size: 0.8rem; color: #667; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>PixelSports</h1>
+    <p class="tag">Beach Volleyball — Early Access v0.1</p>
+    <p>
+      Timing-first pixel beach volleyball: 1P vs AI or 2P local on one keyboard.
+      Eight courts, synth audio, 700+ automated tests behind the scenes.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="play/index.html">Play in browser (free demo)</a>
+      <a class="btn secondary" href="https://itch.io" id="itch-link">Buy on itch.io — $4.99</a>
+      <span class="btn soon" title="Add Steam store URL when live">Steam — Coming Soon</span>
+    </div>
+    <p><strong>Controls:</strong> P1 F/D + Space · P2 J/L + Space · T toggles AI · R restarts</p>
+    <ul>
+      <li>Also in the slate: dorodango workshop, bocce, curling, golf RPG</li>
+      <li>Early Access — procedural art; PNG polish in v0.2</li>
+    </ul>
+    <footer>Public preview · full source in private HQ repo</footer>
+  </div>
+  <script>
+    // Replace with your itch URL after publish:
+    // document.getElementById('itch-link').href = 'https://YOUR_NAME.itch.io/pixelsports-volleyball';
+  </script>
+</body>
+</html>

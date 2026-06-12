@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PixelSports — Beach Volleyball</title>
+  <title>PixelSports — Beach Volleyball by JimmyTheHat</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -14,8 +14,9 @@
       min-height: 100vh;
     }
     .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem; }
-    h1 { font-size: 1.75rem; margin: 0 0 0.25rem; }
-    .tag { color: #ff8c42; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .studio { color: #ff8c42; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    h1 { font-size: 1.75rem; margin: 0.25rem 0; }
+    .tag { color: #a8c0d8; font-size: 0.95rem; margin-bottom: 1.25rem; }
     p { line-height: 1.55; color: #c8d0e0; }
     .cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0; }
     a.btn {
@@ -28,34 +29,31 @@
     }
     .primary { background: #ff6b35; color: #fff; }
     .secondary { background: #2c3e50; color: #fff; border: 1px solid #4a6070; }
-    .soon { background: #1e2a38; color: #8899aa; border: 1px dashed #4a6070; cursor: default; }
+    .soon { background: #1e2a38; color: #8899aa; border: 1px dashed #4a6070; }
     ul { color: #a8b8c8; padding-left: 1.25rem; }
     footer { margin-top: 2rem; font-size: 0.8rem; color: #667; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>PixelSports</h1>
-    <p class="tag">Beach Volleyball — Early Access v0.1</p>
+    <p class="studio">JimmyTheHat presents</p>
+    <h1>PixelSports: Beach Volleyball</h1>
+    <p class="tag">Early Access v0.1 · $4.99 · Procedural pixel art</p>
     <p>
-      Timing-first pixel beach volleyball: 1P vs AI or 2P local on one keyboard.
-      Eight courts, synth audio, 700+ automated tests behind the scenes.
+      Every sprite is generated in code — the art builds itself, then you spike it over the net.
+      1P vs AI or 2P local. Eight courts. Synth audio. No asset packs required.
     </p>
     <div class="cta">
-      <a class="btn primary" href="play/index.html">Play in browser (free demo)</a>
-      <a class="btn secondary" href="https://itch.io" id="itch-link">Buy on itch.io — $4.99</a>
-      <span class="btn soon" title="Add Steam store URL when live">Steam — Coming Soon</span>
+      <a class="btn primary" href="play/index.html">Play free demo</a>
+      <a class="btn secondary" href="https://subtilior.ars.itch.io/jimmythehat-beach-volleyball">Buy on itch.io — $4.99</a>
+      <span class="btn soon">Steam — Coming Soon</span>
     </div>
     <p><strong>Controls:</strong> P1 F/D + Space · P2 J/L + Space · T toggles AI · R restarts</p>
     <ul>
-      <li>Also in the slate: dorodango workshop, bocce, curling, golf RPG</li>
-      <li>Early Access — procedural art; PNG polish in v0.2</li>
+      <li>Procedural art is the feature — PNG polish optional in v0.2</li>
+      <li>More PixelSports titles + JimmyTheHat bundles coming</li>
     </ul>
-    <footer>Public preview · full source in private HQ repo</footer>
+    <footer>Public preview · by JimmyTheHat</footer>
   </div>
-  <script>
-    // Replace with your itch URL after publish:
-    // document.getElementById('itch-link').href = 'https://YOUR_NAME.itch.io/pixelsports-volleyball';
-  </script>
 </body>
 </html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PA Launch Guide — JimmyTheHat Revenue & Crowdfunding</title>
+  <meta name="description" content="Step-by-step checklist for Daniel's assistant: Ko-fi, itch.io PWYW, store copy, deploy, and Kickstarter prep.">
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --bg: #0a1018; --panel: #101820; --line: #2a3848;
+      --accent: #c85a30; --accent-hi: #ff7854;
+      --gold: #d4a820; --text: #f5f0e8; --dim: #8aa8c0; --muted: #506068;
+      --ok: #5cb85c; --nav-h: 52px;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+    body {
+      margin: 0; min-height: 100vh; background: var(--bg); color: var(--text);
+      font-family: "Courier New", Courier, monospace; font-size: 13px; line-height: 1.55;
+    }
+    .topnav {
+      position: sticky; top: 0; z-index: 100; height: var(--nav-h);
+      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+      padding: 8px 14px; background: rgba(10,16,24,.97);
+      border-bottom: 1px solid var(--line); backdrop-filter: blur(8px);
+    }
+    .topnav a {
+      color: var(--dim); text-decoration: none; font-size: 10px;
+      padding: 6px 10px; border: 1px solid transparent; letter-spacing: .5px;
+    }
+    .topnav a:hover, .topnav a.active { color: var(--gold); border-color: var(--line); }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 64px; }
+    h1 { margin: 0 0 4px; font-size: 22px; letter-spacing: 2px; color: #f5e8d0; }
+    .sub { margin: 0 0 14px; font-size: 10px; color: var(--gold); letter-spacing: 1px; }
+    .progress-bar {
+      height: 6px; background: var(--panel); border: 1px solid var(--line);
+      margin: 12px 0 6px; border-radius: 3px; overflow: hidden;
+    }
+    .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--gold)); transition: width .3s; }
+    .progress-label { font-size: 10px; color: var(--muted); margin-bottom: 20px; }
+    .callout {
+      padding: 12px 14px; margin: 16px 0; background: var(--panel);
+      border: 1px solid var(--line); border-left: 3px solid var(--accent);
+      font-size: 11px; color: var(--dim);
+    }
+    .callout.warn { border-left-color: #e8a040; }
+    .callout.ok { border-left-color: var(--ok); }
+    h2 {
+      margin: 32px 0 12px; padding-top: 8px; font-size: 12px;
+      letter-spacing: 2px; color: var(--dim); border-top: 1px solid var(--line);
+    }
+    h2:first-of-type { border-top: none; margin-top: 8px; }
+    .phase-meta { font-size: 10px; color: var(--muted); margin: -8px 0 14px; }
+    .step {
+      display: grid; grid-template-columns: 28px 1fr; gap: 10px 12px;
+      padding: 14px 0; border-bottom: 1px solid #1a2838;
+    }
+    .step:last-child { border-bottom: none; }
+    .step input[type="checkbox"] {
+      width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent); cursor: pointer;
+    }
+    .step-num { font-size: 10px; color: var(--gold); font-weight: bold; margin-bottom: 2px; }
+    .step h3 { margin: 0 0 6px; font-size: 13px; color: var(--text); }
+    .step p { margin: 0 0 8px; font-size: 11px; color: var(--dim); }
+    .links { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+    .links a, .btn-copy {
+      display: inline-block; padding: 8px 12px; font-size: 10px; font-weight: bold;
+      text-decoration: none; letter-spacing: .3px; border-radius: 2px;
+      border: 1px solid var(--line); background: var(--panel); color: #f5e8d0;
+    }
+    .links a.primary { background: linear-gradient(180deg, #e8a040, #a85820); color: #1a1008; border-color: #8a4020; }
+    .links a:hover { border-color: var(--accent-hi); }
+    .links a.primary:hover { filter: brightness(1.08); }
+    .btn-copy { cursor: pointer; font-family: inherit; }
+    pre.cmd {
+      margin: 8px 0; padding: 10px 12px; background: #060a10; border: 1px solid var(--line);
+      font-size: 10px; overflow-x: auto; color: #9ab0c0; white-space: pre-wrap; word-break: break-all;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 10px; margin: 10px 0; }
+    th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); color: var(--dim); }
+    th { color: var(--gold); font-weight: bold; }
+    td a { color: #72ccec; }
+    .report-box {
+      margin: 12px 0; padding: 12px; background: #060a10; border: 1px solid var(--line);
+      font-size: 10px; white-space: pre-wrap; color: var(--dim); max-height: 320px; overflow-y: auto;
+    }
+    footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 9px; color: var(--muted); }
+    footer a { color: #72ccec; }
+    @media print {
+      .topnav, .btn-copy, input[type="checkbox"] { display: none; }
+      .wrap { max-width: none; }
+      body { background: #fff; color: #000; }
+    }
+    @media (max-width: 480px) {
+      .links a, .btn-copy { flex: 1 1 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Guide sections">
+  <a href="#start">Start</a>
+  <a href="#phase1">Phase 1</a>
+  <a href="#phase2">Phase 2</a>
+  <a href="#phase3">Phase 3</a>
+  <a href="#report">Report</a>
+  <a href="#links">All links</a>
+  <a href="../support/">Support hub</a>
+</nav>
+
+<div class="wrap">
+  <h1>PA LAUNCH GUIDE</h1>
+  <p class="sub">JIMMYTHEHAT · REVENUE &amp; CROWDFUNDING · STEP BY STEP</p>
+
+  <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+  <p class="progress-label"><span id="progress-count">0</span> of <span id="progress-total">0</span> steps checked — progress saves in this browser</p>
+
+  <section id="start">
+    <div class="callout ok">
+      <strong>For Daniel's personal assistant.</strong> Marketing copy is already written in the repo — your job is clicking through platforms, pasting text, and reporting back. Estimated time: Phase 1 ≈ 45 min · Phase 2 ≈ 90 min · Phase 3 ≈ spread over a week.
+    </div>
+    <div class="callout warn">
+      <strong>Security:</strong> Use Daniel's password manager or a screen-share login. Never paste passwords into email, Slack, or this page. Do <strong>not</strong> change the <a href="https://subtiliorars-sys.github.io/Ilerioluwa-GoalKeeper-Training-Institute---Preview/" target="_blank" rel="noopener">Ilerioluwa GK site</a> without Daniel's explicit OK (client project).
+    </div>
+    <div class="callout">
+      <strong>This page URL:</strong> <a href="https://subtiliorars-sys.github.io/PixelSports---Preview/launch/pa-guide/">subtiliorars-sys.github.io/PixelSports/pa-guide/</a> ·
+      <a href="https://subtiliorars-sys.github.io/PixelSports---Preview/launch/">All launch pages</a>
+    </div>
+    <div class="callout">
+      <strong>Accounts needed from Daniel:</strong>
+      <a href="https://itch.io/dashboard" target="_blank" rel="noopener">itch.io dashboard</a> ·
+      <a href="https://ko-fi.com/home/coffeeshop" target="_blank" rel="noopener">Ko-fi</a> ·
+      <a href="https://www.kickstarter.com/start" target="_blank" rel="noopener">Kickstarter</a> (Phase 3 — Daniel may need to verify ID on camera)
+    </div>
+  </section>
+
+  <!-- ========== PHASE 1 ========== -->
+  <h2 id="phase1">PHASE 1 — TURN ON MONEY TODAY</h2>
+  <p class="phase-meta">≈ 45 minutes · Do all steps before Phase 2</p>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s1" aria-label="Mark step 1 complete">
+    <div>
+      <div class="step-num">STEP 1.1</div>
+      <h3>Confirm Ko-fi payouts</h3>
+      <p>Log in and make sure Daniel can receive tips.</p>
+      <div class="links">
+        <a class="primary" href="https://ko-fi.com/home/coffeeshop" target="_blank" rel="noopener">Open Ko-fi dashboard</a>
+        <a href="https://ko-fi.com/manage/payment" target="_blank" rel="noopener">Payment setup</a>
+        <a href="https://ko-fi.com/subtiliorars" target="_blank" rel="noopener">Verify public page</a>
+      </div>
+      <p><strong>Done when:</strong> Stripe or PayPal shows connected / payouts enabled.</p>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s2" aria-label="Mark step 1.2 complete">
+    <div>
+      <div class="step-num">STEP 1.2</div>
+      <h3>Enable itch PWYW ($3 suggested) on live games</h3>
+      <p>For each game: <strong>Edit → Pricing → No payment required</strong> → check <strong>Suggest a minimum contribution</strong> → <strong>$3</strong> → Save.</p>
+      <div class="links">
+        <a class="primary" href="https://itch.io/dashboard" target="_blank" rel="noopener">itch dashboard</a>
+      </div>
+      <table>
+        <thead><tr><th>Game</th><th>Open &amp; verify</th></tr></thead>
+        <tbody>
+          <tr><td>PixelSports Hub</td><td><a href="https://subtiliorars.itch.io/jimmythehat-pixelsports" target="_blank" rel="noopener">View page</a></td></tr>
+          <tr><td>Yes Man</td><td><a href="https://subtiliorars.itch.io/jimmythehat-yes-man" target="_blank" rel="noopener">View page</a></td></tr>
+          <tr><td>No Is a Complete Sentence</td><td><a href="https://subtiliorars.itch.io/jimmythehat-no-complete-sentence" target="_blank" rel="noopener">View page</a></td></tr>
+          <tr><td>TradeGame</td><td><a href="https://subtiliorars.itch.io/tradegame-trading-simulator" target="_blank" rel="noopener">View page</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s3" aria-label="Mark step 1.3 complete">
+    <div>
+      <div class="step-num">STEP 1.3</div>
+      <h3>Create 3 missing itch projects</h3>
+      <p>Dashboard → <strong>Create new project</strong> → Kind: <strong>HTML</strong> → main file: <code>index.html</code>. URL slug must match exactly.</p>
+      <div class="links">
+        <a class="primary" href="https://itch.io/game/new" target="_blank" rel="noopener">Create new itch project</a>
+        <a href="https://itch.io/dashboard" target="_blank" rel="noopener">Dashboard</a>
+      </div>
+      <table>
+        <thead><tr><th>Title</th><th>Slug (exact)</th><th>Future URL</th></tr></thead>
+        <tbody>
+          <tr><td>Driving Me Nuts</td><td><code>jimmythehat-driving-me-nuts</code></td><td><a href="https://subtiliorars.itch.io/jimmythehat-driving-me-nuts" target="_blank" rel="noopener">Link</a></td></tr>
+          <tr><td>Broadside</td><td><code>jimmythehat-broadside</code></td><td><a href="https://subtiliorars.itch.io/jimmythehat-broadside" target="_blank" rel="noopener">Link</a></td></tr>
+          <tr><td>Sortie</td><td><code>jimmythehat-sortie</code></td><td><a href="https://subtiliorars.itch.io/jimmythehat-sortie" target="_blank" rel="noopener">Link</a></td></tr>
+        </tbody>
+      </table>
+      <p>Apply same PWYW $3 settings as Step 1.2. Description can stay blank until Phase 2.</p>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s4" aria-label="Mark step 1.4 complete">
+    <div>
+      <div class="step-num">STEP 1.4</div>
+      <h3>Verify support hub is live</h3>
+      <div class="links">
+        <a class="primary" href="https://subtiliorars-sys.github.io/PixelSports---Preview/launch/support/" target="_blank" rel="noopener">Open support hub</a>
+        <a href="https://ko-fi.com/subtiliorars" target="_blank" rel="noopener">Ko-fi from hub</a>
+      </div>
+      <p><strong>Done when:</strong> Page loads, game links work, donate button hits Ko-fi.</p>
+    </div>
+  </div>
+
+  <!-- ========== PHASE 2 ========== -->
+  <h2 id="phase2">PHASE 2 — PASTE COPY &amp; DEPLOY</h2>
+  <p class="phase-meta">≈ 90 minutes · Copy is pre-written on Daniel's machine</p>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s5" aria-label="Mark step 2.1 complete">
+    <div>
+      <div class="step-num">STEP 2.1</div>
+      <h3>Paste itch store descriptions</h3>
+      <p>Open each file below in a text editor on Daniel's computer, copy into itch <strong>Edit → Description</strong>. itch accepts Markdown.</p>
+      <table>
+        <thead><tr><th>Game</th><th>File on Daniel's machine</th><th>itch page</th></tr></thead>
+        <tbody>
+          <tr><td>PixelSports Hub</td><td><code>projects/claude/PixelSports/docs/ITCH_PASTE_READY.md</code></td><td><a href="https://subtiliorars.itch.io/jimmythehat-pixelsports" target="_blank" rel="noopener">Edit via dashboard</a></td></tr>
+          <tr><td>Yes Man</td><td><code>projects/claude/yes-man/docs/ITCH_PASTE_READY.md</code></td><td><a href="https://subtiliorars.itch.io/jimmythehat-yes-man" target="_blank" rel="noopener">View</a></td></tr>
+          <tr><td>No</td><td><code>projects/claude/yes-man/docs/ITCH_PASTE_READY_NO.md</code></td><td><a href="https://subtiliorars.itch.io/jimmythehat-no-complete-sentence" target="_blank" rel="noopener">View</a></td></tr>
+          <tr><td>TradeGame</td><td><code>projects/claude/TradeGame/docs/assets/ITCH_IO_PAGE.md</code></td><td><a href="https://subtiliorars.itch.io/tradegame-trading-simulator" target="_blank" rel="noopener">View</a></td></tr>
+          <tr><td>Driving Me Nuts</td><td><code>projects/claude/DrivingMeNuts/docs/ITCH_PASTE_READY.md</code></td><td><a href="https://subtiliorars.itch.io/jimmythehat-driving-me-nuts" target="_blank" rel="noopener">View</a></td></tr>
+          <tr><td>Broadside</td><td><code>projects/claude/PixelSports/docs/ITCH_PASTE_READY_BROADSIDE.md</code></td><td><a href="https://subtiliorars.itch.io/jimmythehat-broadside" target="_blank" rel="noopener">View</a></td></tr>
+          <tr><td>Sortie</td><td><code>projects/claude/PixelSports/docs/ITCH_PASTE_READY_SORTIE.md</code></td><td><a href="https://subtiliorars.itch.io/jimmythehat-sortie" target="_blank" rel="noopener">View</a></td></tr>
+        </tbody>
+      </table>
+      <div class="links">
+        <a class="primary" href="https://itch.io/dashboard" target="_blank" rel="noopener">itch dashboard (edit all)</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s6" aria-label="Mark step 2.2 complete">
+    <div>
+      <div class="step-num">STEP 2.2</div>
+      <h3>Upload screenshots</h3>
+      <p>Per game on itch <strong>Edit → Upload screenshots</strong>. PNG/JPG, ~1280×720 landscape. Capture in browser if Daniel doesn't have a folder ready.</p>
+      <table>
+        <thead><tr><th>Page</th><th>Minimum shot</th></tr></thead>
+        <tbody>
+          <tr><td>Hub</td><td>Hub + beach volleyball</td></tr>
+          <tr><td>Broadside</td><td>Naval combat / map</td></tr>
+          <tr><td>Sortie</td><td>Dogfight wireframe</td></tr>
+          <tr><td>Driving Me Nuts</td><td>Food truck / district</td></tr>
+          <tr><td>Yes Man / No</td><td>Main gameplay panel</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s7" aria-label="Mark step 2.3 complete">
+    <div>
+      <div class="step-num">STEP 2.3</div>
+      <h3>Run fleet deploy (Daniel's machine)</h3>
+      <p>Needs itch API key at <code>~/.config/itch/api_key</code>. If missing: itch → user menu → <strong>API keys</strong> → save file (chmod 600).</p>
+      <pre class="cmd" id="deploy-cmd">cd projects/claude/PixelSports
+export BUTLER_API_KEY="$(tr -d ' \n\r' &lt; ~/.config/itch/api_key)"
+bash scripts/deploy-fleet.sh</pre>
+      <div class="links">
+        <button type="button" class="btn-copy" data-copy="deploy-cmd">Copy commands</button>
+        <a href="https://itch.io/user/settings/api-keys" target="_blank" rel="noopener">itch API keys</a>
+      </div>
+      <p><strong>Success:</strong> No <code>invalid game</code> errors. <strong>Fix:</strong> Re-check Step 1.3 slugs.</p>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s8" aria-label="Mark step 2.4 complete">
+    <div>
+      <div class="step-num">STEP 2.4 (optional)</div>
+      <h3>itch bundle — JimmyTheHat Free Play Pack</h3>
+      <p>Only if Daniel asks. Dashboard → Bundles → Hub + Yes Man + No + TradeGame → PWYW suggest <strong>$5</strong>.</p>
+      <div class="links">
+        <a href="https://itch.io/dashboard/bundles" target="_blank" rel="noopener">itch bundles</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PHASE 3 ========== -->
+  <h2 id="phase3">PHASE 3 — CROWDFUNDING PREP</h2>
+  <p class="phase-meta">Spread over ~1 week · Do not publish until Daniel approves</p>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s9" aria-label="Mark step 3.1 complete">
+    <div>
+      <div class="step-num">STEP 3.1</div>
+      <h3>Create Kickstarter account + draft project</h3>
+      <p>Daniel may need to be present for ID verification and bank linking. Create a <strong>draft</strong> only — do not publish yet.</p>
+      <div class="links">
+        <a class="primary" href="https://www.kickstarter.com/start" target="_blank" rel="noopener">Start Kickstarter project</a>
+        <a href="https://www.kickstarter.com/help/handbook" target="_blank" rel="noopener">KS handbook</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s10" aria-label="Mark step 3.2 complete">
+    <div>
+      <div class="step-num">STEP 3.2</div>
+      <h3>Paste Kickstarter campaign copy</h3>
+      <p>Review the <a href="https://subtiliorars-sys.github.io/PixelSports---Preview/launch/kickstarter-preview/" target="_blank" rel="noopener">campaign preview page</a>, then paste from <code>projects/shared/fleet-revenue/KICKSTARTER_CAMPAIGN_DRAFT.md</code> into the Kickstarter draft:</p>
+      <table>
+        <thead><tr><th>Kickstarter field</th><th>Draft section</th></tr></thead>
+        <tbody>
+          <tr><td>Title</td><td>Campaign title</td></tr>
+          <tr><td>Subtitle</td><td>Subtitle</td></tr>
+          <tr><td>Goal</td><td><strong>$6,500</strong></td></tr>
+          <tr><td>Duration</td><td>21 days (or Daniel's choice)</td></tr>
+          <tr><td>Story</td><td>Project Description</td></tr>
+          <tr><td>Rewards</td><td>Reward tiers table</td></tr>
+          <tr><td>Risks</td><td>Risks section</td></tr>
+        </tbody>
+      </table>
+      <p>Backup platform if KS delays: <a href="https://www.indiegogo.com/" target="_blank" rel="noopener">Indiegogo</a> — same copy.</p>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s11" aria-label="Mark step 3.3 complete">
+    <div>
+      <div class="step-num">STEP 3.3</div>
+      <h3>Record &amp; upload campaign video (60–90 sec)</h3>
+      <p>Script is in the Kickstarter draft under <strong>Video script</strong>. Screen-record gameplay montage (OBS / QuickTime). Daniel must approve before submit.</p>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s12" aria-label="Mark step 3.4 complete">
+    <div>
+      <div class="step-num">STEP 3.4</div>
+      <h3>Upload 3 campaign images</h3>
+      <p>Hero (logo + "play free in browser"), tier graphic ($3/$8/$12/$25), games collage. Canva is fine.</p>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s13" aria-label="Mark step 3.5 complete">
+    <div>
+      <div class="step-num">STEP 3.5</div>
+      <h3>Pre-launch checklist (Daniel signs off)</h3>
+      <p>Line up <strong>10 day-1 backers</strong>. Then submit for Kickstarter review (3–14 days).</p>
+      <ul style="margin:0;padding-left:18px;font-size:11px;color:var(--dim)">
+        <li>Video + images uploaded</li>
+        <li>Tiers match draft (Steam keys only for listed games)</li>
+        <li>Daniel read Risks + Transparency</li>
+        <li>Submit for review</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s14" aria-label="Mark step 3.6 complete">
+    <div>
+      <div class="step-num">STEP 3.6</div>
+      <h3>Parallel: itch Creator Page + Ko-fi memberships</h3>
+      <div class="links">
+        <a href="https://itch.io/profile/edit" target="_blank" rel="noopener">itch profile / Creator Page</a>
+        <a href="https://ko-fi.com/home/coffeeshop" target="_blank" rel="noopener">Ko-fi memberships</a>
+        <a href="https://subtiliorars-sys.github.io/PixelSports---Preview/launch/support/" target="_blank" rel="noopener">Link support hub</a>
+      </div>
+      <p>Optional $3/mo tier name: <strong>Fleet Supporter</strong> (confirm with Daniel).</p>
+    </div>
+  </div>
+
+  <!-- ========== REPORT ========== -->
+  <h2 id="report">SEND DANIEL THIS REPORT</h2>
+  <div class="report-box" id="report-template">REVENUE LAUNCH STATUS — [DATE]
+
+Phase 1
+- Ko-fi payouts: [enabled / blocked]
+- itch PWYW on 4 live games: [done / which missing]
+- 3 new itch slugs: [done / which missing]
+- Support hub: [ok / 404]
+
+Phase 2
+- Descriptions pasted: [list games]
+- Screenshots: [done / partial]
+- deploy-fleet.sh: [success / error]
+
+Phase 3
+- Kickstarter draft: [URL or not started]
+- Video: [uploaded / in progress]
+- Submitted for KS review: [yes / waiting on Daniel]
+
+Blockers: [list]
+
+Verify:
+https://subtiliorars-sys.github.io/PixelSports---Preview/launch/support/
+https://ko-fi.com/subtiliorars</div>
+  <div class="links">
+    <button type="button" class="btn-copy primary" data-copy="report-template">Copy report template</button>
+  </div>
+
+  <!-- ========== ALL LINKS ========== -->
+  <h2 id="links">ALL LINKS CHEAT SHEET</h2>
+  <table>
+    <thead><tr><th>What</th><th>URL</th></tr></thead>
+    <tbody>
+      <tr><td>This guide</td><td><a href="https://subtiliorars-sys.github.io/PixelSports---Preview/launch/pa-guide/">GitHub Pages</a></td></tr>
+      <tr><td>itch dashboard</td><td><a href="https://itch.io/dashboard" target="_blank" rel="noopener">itch.io/dashboard</a></td></tr>
+      <tr><td>itch profile</td><td><a href="https://subtiliorars.itch.io" target="_blank" rel="noopener">subtiliorars.itch.io</a></td></tr>
+      <tr><td>Support hub</td><td><a href="https://subtiliorars-sys.github.io/PixelSports---Preview/launch/support/" target="_blank" rel="noopener">Support the fleet</a></td></tr>
+      <tr><td>Ko-fi</td><td><a href="https://ko-fi.com/subtiliorars" target="_blank" rel="noopener">ko-fi.com/subtiliorars</a></td></tr>
+      <tr><td>Buy Me a Coffee</td><td><a href="https://buymeacoffee.com/subtilior.ars" target="_blank" rel="noopener">buymeacoffee.com</a></td></tr>
+      <tr><td>PayPal</td><td><a href="https://paypal.me/DanielRead413" target="_blank" rel="noopener">paypal.me</a></td></tr>
+      <tr><td>Kickstarter start</td><td><a href="https://www.kickstarter.com/start" target="_blank" rel="noopener">kickstarter.com/start</a></td></tr>
+      <tr><td>Indiegogo backup</td><td><a href="https://www.indiegogo.com/" target="_blank" rel="noopener">indiegogo.com</a></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn" style="margin-top:20px">
+    <strong>Escalate to Daniel:</strong> Can't log in · Kickstarter wants business entity · TradeGame legal wording · Ilerioluwa / Meniscus / Cairn pages · Missing paste file on disk
+  </div>
+
+  <footer>
+    Repo copies: <code>projects/shared/fleet-revenue/PA_ASSISTANT_GUIDE.md</code> ·
+    <code>KICKSTARTER_CAMPAIGN_DRAFT.md</code> ·
+    <a href="../support/">Support hub</a> ·
+    <a href="../index.html">Play hub</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const KEY = "jimmythehat-pa-guide-v1";
+  const boxes = [...document.querySelectorAll('.step input[type="checkbox"]')];
+  const fill = document.getElementById("progress-fill");
+  const countEl = document.getElementById("progress-count");
+  const totalEl = document.getElementById("progress-total");
+
+  totalEl.textContent = String(boxes.length);
+
+  function load() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+      boxes.forEach((b) => { if (saved[b.id]) b.checked = true; });
+    } catch (_) {}
+    updateProgress();
+  }
+
+  function save() {
+    const state = {};
+    boxes.forEach((b) => { state[b.id] = b.checked; });
+    localStorage.setItem(KEY, JSON.stringify(state));
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const n = boxes.filter((b) => b.checked).length;
+    countEl.textContent = String(n);
+    fill.style.width = boxes.length ? ((n / boxes.length) * 100) + "%" : "0%";
+  }
+
+  boxes.forEach((b) => b.addEventListener("change", save));
+  load();
+
+  document.querySelectorAll("[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-copy");
+      const el = document.getElementById(id);
+      const text = el ? (el.tagName === "PRE" ? el.textContent : el.innerText) : "";
+      navigator.clipboard.writeText(text).then(() => {
+        const prev = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => { btn.textContent = prev; }, 1500);
+      });
+    });
+  });
+
+  const sections = ["start", "phase1", "phase2", "phase3", "report", "links"];
+  const navLinks = [...document.querySelectorAll(".topnav a[href^='#']")];
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+      }
+    });
+  }, { rootMargin: "-40% 0px -50% 0px" });
+  sections.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

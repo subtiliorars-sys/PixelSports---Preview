@@ -393,12 +393,14 @@ bash scripts/deploy-fleet.sh</pre>
     <input type="checkbox" id="s16" aria-label="Mark playtest loop step 2 complete">
     <div>
       <div class="step-num">PLAYTEST 2</div>
-      <h3>Record appointed volunteer reviewers</h3>
-      <p>Daniel names each reviewer and their scope. Start with issue triage only; do not grant publish, secret, billing, or private data access for playtest review.</p>
+      <h3>Screen volunteer applications</h3>
+      <p>Applicants self-qualify with a public GitHub issue: desired scope, test devices, sample review, and safety acknowledgements. The PA can close spam/unsafe applications without escalating.</p>
       <div class="links">
+        <a class="primary" href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=volunteer-application.yml" target="_blank" rel="noopener">Volunteer application form</a>
+        <a href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues?q=is%3Aissue%20is%3Aopen%20%22%5BVolunteer%20application%5D%3A%22" target="_blank" rel="noopener">Application queue</a>
         <a href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=volunteer-review.yml" target="_blank" rel="noopener">Volunteer review form</a>
       </div>
-      <p><strong>Done when:</strong> every reviewer has a named scope such as volleyball controls, dorodango feel, support-page links, or accessibility pass.</p>
+      <p><strong>Pass to Daniel when:</strong> the applicant chose one narrow scope, wrote a useful sample review, agreed not to request private data/secrets, and seems constructive.</p>
     </div>
   </div>
 
@@ -406,9 +408,23 @@ bash scripts/deploy-fleet.sh</pre>
     <input type="checkbox" id="s17" aria-label="Mark playtest loop step 3 complete">
     <div>
       <div class="step-num">PLAYTEST 3</div>
-      <h3>Summarize approvals and blockers</h3>
-      <p>At the end of a feedback batch, send Daniel the approved / needs-work / deferred issue list. Maintainers decide what lands in the next public preview.</p>
+      <h3>Run no-access reviewer pilots</h3>
+      <p>Before granting GitHub triage access, ask accepted applicants to leave 1-3 public review recommendations in their assigned scope. Good pilots are specific, reproducible, kind, and short.</p>
       <p><strong>Safety:</strong> if any issue includes personal data, ask for a scrubbed report and remove or hide the unsafe public copy before review.</p>
+    </div>
+  </div>
+
+  <div class="step" data-step>
+    <input type="checkbox" id="s18" aria-label="Mark playtest loop step 4 complete">
+    <div>
+      <div class="step-num">PLAYTEST 4</div>
+      <h3>Summarize approvals, volunteers, and blockers</h3>
+      <p>At the end of a feedback batch, send Daniel the approved / needs-work / deferred issue list plus any volunteer applications worth appointing. Maintainers decide what lands in the next public preview.</p>
+      <p><strong>Access ladder:</strong> public comments only → issue triage only → broader repo access only by explicit maintainer decision outside the playtest loop.</p>
+      <div class="links">
+        <a href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues?q=is%3Aissue%20is%3Aopen%20%22%5BPlaytest%5D%3A%22" target="_blank" rel="noopener">Feedback queue</a>
+        <a href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues?q=is%3Aissue%20is%3Aopen%20%22%5BVolunteer%20review%5D%3A%22" target="_blank" rel="noopener">Review queue</a>
+      </div>
     </div>
   </div>
 
@@ -435,7 +451,9 @@ Phase 3
 Community playtest
 - Playtest page shared: [yes / no]
 - New playtest issues: [count + top 3 links]
-- Volunteer reviewers appointed: [names/scopes]
+- Volunteer applications: [count + recommended / reject / needs more sample]
+- Reviewer pilots: [links + pass / fail]
+- Volunteer reviewers appointed: [names/scopes/access level]
 - Approved / needs-work / deferred: [counts + links]
 - Personal-data cleanup needed: [no / link and action taken]
 

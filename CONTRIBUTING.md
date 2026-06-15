@@ -27,6 +27,18 @@ payment details, medical details, or private contact info.
 Daniel or a maintainer may appoint volunteers to triage specific playtest areas.
 Volunteer review is a recommendation, not merge or deploy approval.
 
+To apply, use the public volunteer application form:
+<https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=volunteer-application.yml>
+
+The intake ladder is:
+
+1. Applicant chooses one narrow scope and writes a sample review.
+2. PA or maintainer rejects spam/unsafe applications and escalates useful ones.
+3. Applicant completes a no-access pilot with 1-3 public review recommendations.
+4. Daniel or a maintainer may appoint the reviewer for a named scope.
+5. Issue-triage access can be granted later if useful; merge, deploy, billing,
+   secret, and private data access are never granted through this playtest loop.
+
 Volunteer reviewers may:
 
 - Reproduce public playtest issues.
@@ -43,6 +55,9 @@ Volunteer reviewers may not:
 
 Use the volunteer review form to record recommendations:
 <https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=volunteer-review.yml>
+
+Maintainers can remove volunteer status immediately for off-scope, hostile,
+unsafe, spammy, or private-data-seeking behavior.
 
 ## Pull requests
 

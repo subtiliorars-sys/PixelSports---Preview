@@ -64,13 +64,14 @@ be able to read the latest entry and know exactly what is and isn't satisfied.
 - Auditor: _(unfilled)_  ·  Red-team verdict: _(n/a — not yet audited)_
 
 ### 2026-06-15 — community playtest loop scaffold
-- State: **UNAUDITED.** Added public playtest intake, appointed volunteer review
-  docs, and PR/issue templates. No invariant boxes checked because GitHub role
-  permissions, branch protection, labels, and deploy approvals must still be
-  configured and verified by the Owner/maintainers.
-- Next: create the `playtest` and `volunteer-review` labels, grant reviewers
-  least-privilege issue triage access, verify default-branch protection, and run a
-  real feedback -> volunteer recommendation -> maintainer decision cycle.
+- State: **UNAUDITED.** Added public playtest intake, volunteer self-qualification,
+  appointed volunteer review docs, and PR/issue templates. No invariant boxes
+  checked because GitHub role permissions, branch protection, labels, and deploy
+  approvals must still be configured and verified by the Owner/maintainers.
+- Next: create optional `playtest`, `volunteer-application`, and
+  `volunteer-review` labels, grant reviewers least-privilege issue triage access
+  only after a no-access pilot, verify default-branch protection, and run a real
+  feedback -> volunteer recommendation -> maintainer decision cycle.
 - Auditor: GPT-5.5 cloud agent · Red-team verdict: _(n/a — documentation and
   static workflow scaffold only)_
 

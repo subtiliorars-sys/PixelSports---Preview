@@ -78,9 +78,16 @@
 
     <div class="cta-row">
       <a class="btn primary" href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=playtest-feedback.yml" target="_blank" rel="noopener">Submit playtest feedback</a>
+      <a class="btn" href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=volunteer-application.yml" target="_blank" rel="noopener">Apply to review</a>
       <a class="btn" href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=volunteer-review.yml" target="_blank" rel="noopener">Record volunteer review</a>
       <a class="btn" href="../../play/">Play browser demo</a>
       <a class="btn" href="../support/">Support hub</a>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn" href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues?q=is%3Aissue%20is%3Aopen%20%22%5BPlaytest%5D%3A%22" target="_blank" rel="noopener">Open feedback queue</a>
+      <a class="btn" href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues?q=is%3Aissue%20is%3Aopen%20%22%5BVolunteer%20application%5D%3A%22" target="_blank" rel="noopener">Open application queue</a>
+      <a class="btn" href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues?q=is%3Aissue%20is%3Aopen%20%22%5BVolunteer%20review%5D%3A%22" target="_blank" rel="noopener">Open review queue</a>
     </div>
 
     <h2>LANES</h2>
@@ -94,7 +101,7 @@
       <section class="lane">
         <span class="tag">VOLUNTEERS</span>
         <h3>Triage and recommend</h3>
-        <p>Daniel appoints trusted volunteers as reviewers. Reviewers can reproduce, label, and recommend <code>approve</code>, <code>needs-work</code>, or <code>defer</code>.</p>
+        <p>Community members can apply for a narrow review scope. Appointed reviewers can reproduce, label, and recommend <code>approve</code>, <code>needs-work</code>, or <code>defer</code>.</p>
       </section>
       <section class="lane">
         <span class="tag">OWNER</span>
@@ -102,6 +109,15 @@
         <p>Maintainers keep final authority for code changes, default-branch merges, itch uploads, Kickstarter copy, and public deploys.</p>
       </section>
     </div>
+
+    <h2>VOLUNTEER INTAKE</h2>
+    <ol>
+      <li><strong>Self-qualify publicly.</strong> Applicant fills out the volunteer application form with a GitHub handle, preferred scope, test environment, and sample review.</li>
+      <li><strong>PA scope check.</strong> The PA or maintainer checks that the applicant chose one narrow lane and acknowledged the safety rules.</li>
+      <li><strong>No-access pilot.</strong> Applicant leaves 1-3 review recommendations as public issue comments or volunteer review issues. No repository write access is needed.</li>
+      <li><strong>Appoint if useful.</strong> If the pilot is clear, kind, scoped, and safe, Daniel/maintainer records the scope and may grant issue-triage access.</li>
+      <li><strong>Review access later.</strong> Stale, unsafe, off-scope, or disruptive volunteers lose reviewer status immediately.</li>
+    </ol>
 
     <h2>LOOP</h2>
     <ol>
@@ -142,6 +158,35 @@
       accidental personal data, hide or delete the public copy and ask for a scrubbed version.
     </p>
 
+    <h2>ABUSE-RESISTANT DEFAULTS</h2>
+    <table>
+      <thead>
+        <tr><th>Risk</th><th>Default gate</th><th>PA / maintainer action</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Spam or low-effort applicants</td>
+          <td>Application requires a sample review, scope, and acknowledgements.</td>
+          <td>Close with no access; invite a better sample later if appropriate.</td>
+        </tr>
+        <tr>
+          <td>Bad actor seeking control</td>
+          <td>Volunteer status starts with public comments only, not write access.</td>
+          <td>Never grant secrets, billing, deploy, or merge rights through this loop.</td>
+        </tr>
+        <tr>
+          <td>Off-scope arguments</td>
+          <td>Each reviewer has one named scope and one recommendation form.</td>
+          <td>Ignore or close off-scope reviews; narrow the assignment before continuing.</td>
+        </tr>
+        <tr>
+          <td>Private data leakage</td>
+          <td>All forms warn against personal data and ask for public-only details.</td>
+          <td>Remove unsafe public content and ask for a scrubbed report.</td>
+        </tr>
+      </tbody>
+    </table>
+
     <h2>STATUS BOARD</h2>
     <table>
       <thead>
@@ -168,9 +213,10 @@
 
     <h2>VOLUNTEER APPOINTMENT CHECKLIST</h2>
     <ol>
+      <li>Daniel or the PA links the accepted volunteer application.</li>
       <li>Daniel names the volunteer and scope: game, issue category, or release slice.</li>
-      <li>Maintainer grants the least GitHub access needed, usually issue triage before write access.</li>
-      <li>Volunteer reviews with the public template and does not request secrets or private builds.</li>
+      <li>Maintainer grants the least GitHub access needed, usually no access for the pilot and issue triage only after trust is earned.</li>
+      <li>Volunteer reviews with the public template and does not request secrets, private builds, or player identity details.</li>
       <li>Owner can remove reviewer status at any time; stale access gets reviewed during governance audits.</li>
     </ol>
 

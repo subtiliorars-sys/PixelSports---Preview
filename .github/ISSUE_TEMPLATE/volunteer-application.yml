@@ -1,0 +1,83 @@
+name: Volunteer reviewer application
+description: Apply to help triage public playtest feedback without receiving merge or deploy access.
+title: "[Volunteer application]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for offering to help. This application is public. Share only information you are comfortable making public.
+
+        Applying does not grant repository write access. Daniel, a maintainer, or a delegated PA must assign a narrow review scope before you act as a volunteer reviewer.
+  - type: input
+    id: github_handle
+    attributes:
+      label: GitHub handle
+      description: Use your public GitHub username. Do not include email, phone, Discord, or private contact details.
+      placeholder: "@username"
+    validations:
+      required: true
+  - type: dropdown
+    id: preferred_scope
+    attributes:
+      label: Preferred review scope
+      description: Pick one narrow lane to start.
+      options:
+        - Volleyball controls and onboarding
+        - Volleyball bugs and browser compatibility
+        - Dorodango feel and replay loop
+        - Accessibility and readability
+        - Support / funding page link checks
+        - Copy clarity and typo pass
+        - Other narrow scope
+    validations:
+      required: true
+  - type: textarea
+    id: qualification
+    attributes:
+      label: Why this scope?
+      description: Briefly explain relevant play experience, testing experience, accessibility background, writing/editing experience, or why this lane interests you.
+      placeholder: "I can test on Firefox/Linux and Chrome/Android; I like writing clear repro steps."
+    validations:
+      required: true
+  - type: textarea
+    id: available_devices
+    attributes:
+      label: Public test environment
+      description: List browsers/devices you can test with. Keep it general; no serial numbers or private location details.
+      placeholder: "Chrome on Windows laptop; Safari on iPhone; Firefox on Linux desktop."
+    validations:
+      required: true
+  - type: dropdown
+    id: expected_volume
+    attributes:
+      label: Expected review volume
+      description: Keep expectations modest; quality beats quantity.
+      options:
+        - 1-2 issues per week
+        - 3-5 issues per week
+        - Occasional focused passes only
+        - Not sure yet
+    validations:
+      required: true
+  - type: textarea
+    id: sample_review
+    attributes:
+      label: Sample review
+      description: Write a short example of the kind of useful review you would leave on a playtest issue.
+      placeholder: |
+        Reproduced on Chrome/Android. Steps: open /play/, tap start, rotate screen. Expected controls stay visible; actual controls overlap score. Recommend needs-work before next mobile push.
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Safety and access acknowledgements
+      options:
+        - label: I understand I am applying for public issue triage/recommendations, not merge, deploy, billing, secret, or private data access.
+          required: true
+        - label: I will not ask playtesters for real names, ages, addresses, payment details, private contact info, or medical/identity details.
+          required: true
+        - label: I will stay inside my assigned scope unless a maintainer expands it.
+          required: true
+        - label: I understand maintainers can remove volunteer status or ignore unsafe/off-scope reviews.
+          required: true

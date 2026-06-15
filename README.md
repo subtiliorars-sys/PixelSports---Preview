@@ -9,3 +9,7 @@ story-driven golf RPG.
 
 This repo carries sanitized snapshots only — code and design internals live in the
 private HQ repo.
+
+Community playtesting and volunteer review notes are handled through
+[`CONTRIBUTING.md`](CONTRIBUTING.md) and the public
+[playtest loop](https://subtiliorars-sys.github.io/PixelSports---Preview/launch/playtest/).

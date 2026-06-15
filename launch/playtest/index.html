@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playtest Loop — PixelSports</title>
+  <meta name="description" content="Public playtest intake and volunteer review workflow for PixelSports preview builds.">
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --bg: #0a1018; --panel: #101820; --line: #2a3848;
+      --accent: #c85a30; --accent-hi: #ff7854;
+      --gold: #d4a820; --text: #f5f0e8; --dim: #8aa8c0; --muted: #506068;
+      --ok: #5cb85c; --warn: #e8a040;
+    }
+    body {
+      margin: 0; min-height: 100vh;
+      background: var(--bg); color: var(--text);
+      font-family: "Courier New", Courier, monospace;
+      line-height: 1.55;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 24px 18px 56px; }
+    h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: 2px; color: #f5e8d0; }
+    .sub { margin: 0 0 18px; font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+    h2 {
+      margin: 30px 0 10px; padding-top: 10px;
+      border-top: 1px solid var(--line);
+      font-size: 12px; letter-spacing: 2px; color: var(--dim);
+    }
+    h2:first-of-type { border-top: none; margin-top: 18px; }
+    p, li { font-size: 12px; color: var(--dim); }
+    a { color: #72ccec; }
+    .hero, .card, .lane {
+      background: var(--panel); border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+    }
+    .hero { padding: 14px 16px; margin: 16px 0 20px; font-size: 12px; color: #9ab0c0; }
+    .hero.warn { border-left-color: var(--warn); }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; }
+    .btn {
+      display: inline-block; flex: 1 1 180px; padding: 11px 12px;
+      background: #101820; border: 1px solid var(--line);
+      color: var(--text); text-align: center; text-decoration: none;
+      font-size: 11px; font-weight: bold; border-radius: 2px;
+    }
+    .btn.primary { background: linear-gradient(180deg, #e8a040, #a85820); color: #1a1008; border-color: #8a4020; }
+    .btn:hover { border-color: var(--accent-hi); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .lane { padding: 12px 14px; min-height: 150px; }
+    .lane h3 { margin: 0 0 6px; font-size: 12px; color: var(--text); }
+    .lane .tag { display: inline-block; margin-bottom: 8px; padding: 2px 6px; font-size: 9px; border: 1px solid var(--line); color: var(--gold); }
+    ol { padding-left: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 11px; margin: 12px 0; }
+    th, td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; color: var(--dim); }
+    th { color: var(--gold); }
+    code { color: #f5d08a; }
+    .status {
+      display: inline-block; padding: 2px 6px; border: 1px solid #2a5060;
+      background: #1a3040; color: #72ccec; font-size: 9px;
+    }
+    footer { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 9px; color: var(--muted); }
+    @media (max-width: 680px) {
+      .grid { grid-template-columns: 1fr; }
+      .btn { flex-basis: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>PLAYTEST LOOP</h1>
+    <p class="sub">PUBLIC PLAYERS -> APPOINTED REVIEWERS -> OWNER APPROVAL</p>
+
+    <p class="hero">
+      This repo is a public preview. Use this loop to get builds into community hands,
+      turn playtest notes into reviewable GitHub issues, and let appointed volunteers
+      recommend which changes are ready for the next public slice.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn primary" href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=playtest-feedback.yml" target="_blank" rel="noopener">Submit playtest feedback</a>
+      <a class="btn" href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=volunteer-review.yml" target="_blank" rel="noopener">Record volunteer review</a>
+      <a class="btn" href="../../play/">Play browser demo</a>
+      <a class="btn" href="../support/">Support hub</a>
+    </div>
+
+    <h2>LANES</h2>
+    <div class="grid">
+      <section class="lane">
+        <span class="tag">PLAYERS</span>
+        <h3>Play and report</h3>
+        <p>Play the public demo, then file one issue per bug, balance note, or usability problem.</p>
+        <p><strong>Best reports include:</strong> game, browser/device, steps to reproduce, expected result, and actual result.</p>
+      </section>
+      <section class="lane">
+        <span class="tag">VOLUNTEERS</span>
+        <h3>Triage and recommend</h3>
+        <p>Daniel appoints trusted volunteers as reviewers. Reviewers can reproduce, label, and recommend <code>approve</code>, <code>needs-work</code>, or <code>defer</code>.</p>
+      </section>
+      <section class="lane">
+        <span class="tag">OWNER</span>
+        <h3>Merge and publish</h3>
+        <p>Maintainers keep final authority for code changes, default-branch merges, itch uploads, Kickstarter copy, and public deploys.</p>
+      </section>
+    </div>
+
+    <h2>LOOP</h2>
+    <ol>
+      <li><strong>Publish a playable slice.</strong> Link the build from the support hub and pin known limitations.</li>
+      <li><strong>Collect structured issues.</strong> Playtesters use the feedback template instead of free-form DMs.</li>
+      <li><strong>Volunteer review.</strong> Appointed reviewers reproduce the issue or inspect the proposed change and record a recommendation issue/comment.</li>
+      <li><strong>Owner gate.</strong> Daniel or a maintainer accepts the recommendation, schedules the work, or closes it with a reason.</li>
+      <li><strong>Ship notes.</strong> When a new preview is published, link the shipped issues and ask for focused retests.</li>
+    </ol>
+
+    <h2>ACCESS MODEL</h2>
+    <table>
+      <thead>
+        <tr><th>Role</th><th>Allowed</th><th>Not allowed</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Playtester</td>
+          <td>Open issues, add screenshots, confirm whether a fix works.</td>
+          <td>Approve merges, request secrets, handle private player data.</td>
+        </tr>
+        <tr>
+          <td>Volunteer reviewer</td>
+          <td>Reproduce reports, recommend priority, request clearer evidence, mark approval status.</td>
+          <td>Bypass governance, publish builds, speak for the project owner.</td>
+        </tr>
+        <tr>
+          <td>Maintainer / owner</td>
+          <td>Assign volunteers, merge PRs, publish builds, approve external announcements.</td>
+          <td>Delegate final accountability for data, money, minors, or public brand claims.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="hero warn">
+      Safety rule: do not ask playtesters for real names, age, payment details,
+      home addresses, or private medical/identity information. If a report includes
+      accidental personal data, hide or delete the public copy and ask for a scrubbed version.
+    </p>
+
+    <h2>STATUS BOARD</h2>
+    <table>
+      <thead>
+        <tr><th>Game / surface</th><th>Current public state</th><th>Next review question</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PixelSports Beach Volleyball</td>
+          <td><span class="status">PUBLIC DEMO</span></td>
+          <td>Can new players understand controls and finish a rally without coaching?</td>
+        </tr>
+        <tr>
+          <td>Dorodango dev slice</td>
+          <td><span class="status">PUBLIC DEV SLICE</span></td>
+          <td>Does the polish loop feel calming, legible, and worth replaying?</td>
+        </tr>
+        <tr>
+          <td>Support / funding pages</td>
+          <td><span class="status">LIVE OPS</span></td>
+          <td>Do links, tip paths, and campaign copy match the currently shipped builds?</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>VOLUNTEER APPOINTMENT CHECKLIST</h2>
+    <ol>
+      <li>Daniel names the volunteer and scope: game, issue category, or release slice.</li>
+      <li>Maintainer grants the least GitHub access needed, usually issue triage before write access.</li>
+      <li>Volunteer reviews with the public template and does not request secrets or private builds.</li>
+      <li>Owner can remove reviewer status at any time; stale access gets reviewed during governance audits.</li>
+    </ol>
+
+    <footer>
+      PixelSports public preview · <a href="../../">Home</a> ·
+      <a href="../pa-guide/">PA guide</a> ·
+      <a href="https://github.com/subtiliorars-sys/PixelSports---Preview/issues" target="_blank" rel="noopener">Issue tracker</a>
+    </footer>
+  </div>
+</body>
+</html>

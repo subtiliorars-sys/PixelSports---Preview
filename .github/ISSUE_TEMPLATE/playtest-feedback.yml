@@ -1,0 +1,80 @@
+name: Playtest feedback
+description: Report a bug, balance note, or confusing moment from a public PixelSports playtest.
+title: "[Playtest]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for playtesting. Please file one issue per bug or feedback topic so volunteers can reproduce and review it.
+
+        Do not include private personal information such as real names, age, addresses, payment details, medical details, or private contact info.
+  - type: dropdown
+    id: game
+    attributes:
+      label: Game or surface
+      options:
+        - PixelSports Beach Volleyball
+        - Dorodango dev slice
+        - Support / funding page
+        - Other public preview
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: Build or URL
+      description: Paste the page URL or note the visible version, if any.
+      placeholder: https://subtiliorars-sys.github.io/PixelSports---Preview/play/
+    validations:
+      required: true
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: Feedback type
+      options:
+        - Bug
+        - Controls / onboarding
+        - Balance / difficulty
+        - Accessibility
+        - Performance
+        - Copy / link issue
+        - Positive note
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Short, specific description of the problem or observation.
+      placeholder: I expected..., but instead...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Leave blank if this is not reproducible.
+      placeholder: |
+        1. Open...
+        2. Press...
+        3. Observe...
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: Chrome on Windows laptop, Safari on iPhone, Firefox on Linux, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots, video, or console notes
+      description: Drag in media if useful. Avoid screenshots that reveal private info.
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Safety check
+      options:
+        - label: I did not include private personal information in this report.
+          required: true

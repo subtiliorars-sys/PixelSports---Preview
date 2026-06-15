@@ -1,0 +1,67 @@
+name: Volunteer review
+description: Record an appointed volunteer review for a playtest issue or proposed preview change.
+title: "[Volunteer review]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for appointed reviewers. It records a recommendation only; maintainers keep final merge and publish authority.
+  - type: input
+    id: linked_work
+    attributes:
+      label: Linked issue, PR, or build
+      description: Paste the issue, pull request, commit, or preview URL being reviewed.
+      placeholder: https://github.com/subtiliorars-sys/PixelSports---Preview/issues/123
+    validations:
+      required: true
+  - type: input
+    id: reviewer_scope
+    attributes:
+      label: Reviewer scope
+      description: State who appointed you and what you were asked to review.
+      placeholder: Appointed by Daniel for volleyball controls triage.
+    validations:
+      required: true
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: Recommendation
+      options:
+        - Approve for maintainer review
+        - Needs work before maintainer review
+        - Defer / not enough evidence
+        - Duplicate / already covered
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence checked
+      description: Summarize reproduction steps, browser/device used, screenshots, or links reviewed.
+      placeholder: |
+        - Reproduced on...
+        - Compared expected vs actual...
+        - Confirmed no private data is exposed...
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks or blockers
+      description: Note any data, money, minors, brand, accessibility, or deploy concerns.
+  - type: textarea
+    id: next_steps
+    attributes:
+      label: Suggested next step
+      placeholder: Close as fixed, schedule balance pass, request clearer repro, retest next build, etc.
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Reviewer acknowledgements
+      options:
+        - label: I understand this is a recommendation and does not approve a merge or public deploy.
+          required: true
+        - label: I did not request secrets, private player data, or non-public credentials.
+          required: true

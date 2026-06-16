@@ -13,3 +13,6 @@ private HQ repo.
 Community playtesting and volunteer review notes are handled through
 [`CONTRIBUTING.md`](CONTRIBUTING.md) and the public
 [playtest loop](https://subtiliorars-sys.github.io/PixelSports---Preview/launch/playtest/).
+Use the
+[recruitment kit](https://subtiliorars-sys.github.io/PixelSports---Preview/launch/recruit/)
+for ready-to-send playtester, flight tester, and volunteer reviewer outreach.

@@ -8,6 +8,7 @@ private design internals live outside this repo.
 Use the public playtest loop before sending free-form notes:
 
 - Playtest loop: <https://subtiliorars-sys.github.io/PixelSports---Preview/launch/playtest/>
+- Recruitment kit: <https://subtiliorars-sys.github.io/PixelSports---Preview/launch/recruit/>
 - Feedback form: <https://github.com/subtiliorars-sys/PixelSports---Preview/issues/new?template=playtest-feedback.yml>
 
 Good reports include:

@@ -50,10 +50,15 @@ if [ "$paths" = "static" ]; then
   fi
 fi
 
+# Never lint the guard's own config: the wordlist file MUST contain the brand
+# words to function, so scanning .githooks/ would always self-match (false
+# positive). Excluding it preserves full enforcement on every CONTENT file.
+EXCL=':!.githooks'
+
 # Any tracked files under the scan paths? (NUL-safe: never store the list in a
 # string — command substitution strips NUL bytes and would concatenate names.)
 # shellcheck disable=SC2086
-git ls-files -z -- $paths 2>/dev/null | grep -qz . || exit 0
+git ls-files -z -- $paths "$EXCL" 2>/dev/null | grep -qz . || exit 0
 
 hits=""
 while IFS= read -r pat; do
@@ -62,7 +67,7 @@ while IFS= read -r pat; do
   [ -n "$pat" ] || continue
   # Re-list (cheap) and pipe NUL-delimited straight to xargs -0 — no var round-trip.
   # shellcheck disable=SC2086
-  h="$(git ls-files -z -- $paths 2>/dev/null | xargs -0 grep -nwiIE -- "$pat" 2>/dev/null || true)"
+  h="$(git ls-files -z -- $paths "$EXCL" 2>/dev/null | xargs -0 grep -nwiIE -- "$pat" 2>/dev/null || true)"
   [ -n "$h" ] && hits="$hits"$'\n'"== match: '$pat' =="$'\n'"$h"
 done < "$wordlist"
 

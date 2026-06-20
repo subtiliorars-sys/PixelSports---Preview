@@ -7,7 +7,7 @@ body:
       value: |
         Thanks for offering to help. This application is public. Share only information you are comfortable making public.
 
-        Applying does not grant repository write access. Daniel, a maintainer, or a delegated PA must assign a narrow review scope before you act as a volunteer reviewer.
+        Applying does not grant repository write access. A maintainer must assign a narrow review scope before you act as a volunteer reviewer.
   - type: input
     id: github_handle
     attributes:

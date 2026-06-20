@@ -79,7 +79,7 @@ be able to read the latest entry and know exactly what is and isn't satisfied.
 - State: **UNAUDITED.** Added public recruitment copy and PA screening workflow
   for playtesters, flight testers, and volunteer reviewers. This is static
   documentation only; it does not grant permissions or automate outreach.
-- Next: Daniel/PA sends one small outreach batch, reviews incoming forms, rejects
+- Next: A maintainer sends one small outreach batch, reviews incoming forms, rejects
   unsafe applicants, and records whether the no-access pilot produces useful
   recommendations before any issue-triage access is granted.
 - Auditor: GPT-5.5 cloud agent · Red-team verdict: _(n/a — outreach docs only)_

@@ -25,7 +25,7 @@ payment details, medical details, or private contact info.
 
 ## Volunteer review
 
-Daniel or a maintainer may appoint volunteers to triage specific playtest areas.
+A maintainer may appoint volunteers to triage specific playtest areas.
 Volunteer review is a recommendation, not merge or deploy approval.
 
 To apply, use the public volunteer application form:
@@ -36,7 +36,7 @@ The intake ladder is:
 1. Applicant chooses one narrow scope and writes a sample review.
 2. PA or maintainer rejects spam/unsafe applications and escalates useful ones.
 3. Applicant completes a no-access pilot with 1-3 public review recommendations.
-4. Daniel or a maintainer may appoint the reviewer for a named scope.
+4. A maintainer may appoint the reviewer for a named scope.
 5. Issue-triage access can be granted later if useful; merge, deploy, billing,
    secret, and private data access are never granted through this playtest loop.
 

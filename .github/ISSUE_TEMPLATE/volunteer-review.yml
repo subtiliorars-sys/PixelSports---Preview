@@ -19,7 +19,7 @@ body:
     attributes:
       label: Reviewer scope
       description: State who appointed you and what you were asked to review.
-      placeholder: Appointed by Daniel for volleyball controls triage.
+      placeholder: Appointed by a maintainer for volleyball controls triage.
     validations:
       required: true
   - type: dropdown

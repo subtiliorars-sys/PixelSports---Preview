@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PixelSports — Bocce (dev slice)</title>
     <meta name="description" content="Roll together — lawn bocce pass-and-play, coming soon in PixelSports." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&display=swap" />
     <style>
       html, body {
         margin: 0;
@@ -18,15 +21,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: "Nunito Sans", system-ui, sans-serif;
       }
-      /* crisp-edges for art; auto keeps HUD text readable when scaled */
       canvas { image-rendering: auto; max-width: 100%; max-height: 100%; }
       #fs-btn {
         position: fixed;
         top: 8px;
         right: 8px;
         z-index: 20;
-        font: 600 14px/1 system-ui, sans-serif;
+        font: 700 14px/1 "Nunito Sans", system-ui, sans-serif;
         padding: 8px 12px;
         border-radius: 8px;
         border: 1px solid rgba(255,255,255,0.35);
@@ -35,10 +38,10 @@
         cursor: pointer;
       }
     </style>
-    <script type="module" crossorigin src="../../assets/bocce-DrodQu4l.js"></script>
-    <link rel="modulepreload" crossorigin href="../../assets/playTogether-C0XTFJu3.js">
+    <script type="module" crossorigin src="../../assets/bocce-DzNM3UWX.js"></script>
     <link rel="modulepreload" crossorigin href="../../assets/phaser-CaWnzXme.js">
-    <link rel="modulepreload" crossorigin href="../../assets/gameChrome-B2slOz5c.js">
+    <link rel="modulepreload" crossorigin href="../../assets/playTogether-B5ah0Oh5.js">
+    <link rel="modulepreload" crossorigin href="../../assets/gameChrome-BjuhadqK.js">
     <link rel="modulepreload" crossorigin href="../../assets/sphereBody-BIbxXG4L.js">
   </head>
   <body>

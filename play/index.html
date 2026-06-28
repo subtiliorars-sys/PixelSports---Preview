@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PixelSports — Volleyball Slice</title>
     <meta name="description" content="Beach volleyball — solo warm-up or same-screen 2P with a friend. Better together." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&display=swap" />
     <style>
-      html,
-      body {
+      html, body {
         margin: 0;
         padding: 0;
         background: #0a0a12;
         height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+      body {
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: "Nunito Sans", system-ui, sans-serif;
       }
-      canvas {
-        image-rendering: pixelated;
-      }
+      canvas { image-rendering: auto; max-width: 100%; max-height: 100%; }
     </style>
-    <script type="module" crossorigin src="./assets/volleyball-lcqwQK3y.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/playTogether-C0XTFJu3.js">
+    <script type="module" crossorigin src="./assets/volleyball-BG6_542W.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/phaser-CaWnzXme.js">
+    <link rel="modulepreload" crossorigin href="./assets/playTogether-B5ah0Oh5.js">
     <link rel="modulepreload" crossorigin href="./assets/webAudioSynth-BTY-KxnK.js">
+    <link rel="modulepreload" crossorigin href="./assets/sphereBody-BIbxXG4L.js">
   </head>
   <body>
   </body>

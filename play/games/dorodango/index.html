@@ -5,21 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hikaru — Dorodango (dev slice)</title>
     <meta name="description" content="Polish dorodango together — craft solo, pass the device to gift someone you care about." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800&display=swap" />
     <style>
       html, body {
         margin: 0;
         padding: 0;
         background: #1a1008;
         height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+      body {
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: "Nunito Sans", system-ui, sans-serif;
       }
-      canvas { image-rendering: pixelated; }
+      canvas { image-rendering: auto; max-width: 100%; max-height: 100%; }
     </style>
-    <script type="module" crossorigin src="../../assets/dorodango-ClK-647e.js"></script>
-    <link rel="modulepreload" crossorigin href="../../assets/playTogether-C0XTFJu3.js">
+    <script type="module" crossorigin src="../../assets/dorodango-DRdPIeGB.js"></script>
     <link rel="modulepreload" crossorigin href="../../assets/phaser-CaWnzXme.js">
+    <link rel="modulepreload" crossorigin href="../../assets/playTogether-B5ah0Oh5.js">
     <link rel="modulepreload" crossorigin href="../../assets/webAudioSynth-BTY-KxnK.js">
   </head>
   <body>

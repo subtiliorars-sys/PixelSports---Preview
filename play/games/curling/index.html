@@ -11,17 +11,43 @@
         padding: 0;
         background: #0f1a28;
         height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+      body {
         display: flex;
         align-items: center;
         justify-content: center;
       }
-      canvas { image-rendering: pixelated; }
+      canvas { image-rendering: auto; max-width: 100%; max-height: 100%; }
+      #fs-btn {
+        position: fixed;
+        top: 8px;
+        right: 8px;
+        z-index: 20;
+        font: 600 14px/1 system-ui, sans-serif;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.35);
+        background: rgba(0,0,0,0.55);
+        color: #e8f4ff;
+        cursor: pointer;
+      }
     </style>
-    <script type="module" crossorigin src="../../assets/curling-Cgr1YJsn.js"></script>
+    <script type="module" crossorigin src="../../assets/curling-DdcKnl9N.js"></script>
     <link rel="modulepreload" crossorigin href="../../assets/playTogether-C0XTFJu3.js">
     <link rel="modulepreload" crossorigin href="../../assets/phaser-CaWnzXme.js">
-    <link rel="modulepreload" crossorigin href="../../assets/sphereBody-OPyQ5XXe.js">
+    <link rel="modulepreload" crossorigin href="../../assets/gameChrome-B2slOz5c.js">
+    <link rel="modulepreload" crossorigin href="../../assets/sphereBody-BIbxXG4L.js">
   </head>
   <body>
+    <button id="fs-btn" type="button" aria-label="Fullscreen">Fullscreen</button>
+    <script>
+      document.getElementById("fs-btn").addEventListener("click", () => {
+        const el = document.documentElement;
+        if (document.fullscreenElement) document.exitFullscreen?.();
+        else el.requestFullscreen?.();
+      });
+    </script>
   </body>
 </html>

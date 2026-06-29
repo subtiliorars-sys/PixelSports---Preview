@@ -18,6 +18,9 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# Wrangler local state
+.wrangler/
+
 # Secrets / environment (do NOT commit)
 .env
 .env.*

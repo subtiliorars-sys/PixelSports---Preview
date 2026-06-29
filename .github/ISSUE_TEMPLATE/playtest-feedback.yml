@@ -24,7 +24,7 @@ body:
     attributes:
       label: Build or URL
       description: Paste the page URL or note the visible version, if any.
-      placeholder: https://subtiliorars-sys.github.io/PixelSports---Preview/play/
+      placeholder: https://pixelsports.us/play/
     validations:
       required: true
   - type: dropdown

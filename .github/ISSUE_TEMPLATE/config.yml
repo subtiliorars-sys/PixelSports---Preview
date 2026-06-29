@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Playtest loop
-    url: https://subtiliorars-sys.github.io/PixelSports---Preview/launch/playtest/
+    url: https://pixelsports.us/launch/playtest/
     about: Start here for playtest feedback, volunteer applications, and review recommendations.
   - name: Support the fleet
-    url: https://subtiliorars-sys.github.io/PixelSports---Preview/
+    url: https://pixelsports.us/
     about: Play current public builds and find support links.

@@ -54,11 +54,24 @@
     }
     a.btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
     .primary { background: #ff6b35; color: #fff; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 0 0 2rem; }
+    .hero-cta a.btn { flex: 1 1 10rem; max-width: 100%; }
+    .secondary { background: transparent; color: #ff8c42; border: 2px solid #ff8c42; }
+    .funnel {
+      margin-top: 2.5rem;
+      background: rgba(255,140,66,0.06);
+      border: 1px solid rgba(255,140,66,0.22);
+      border-radius: 12px;
+      padding: 1.35rem 1.4rem;
+    }
+    .funnel h3 { margin: 0 0 0.35rem; font-size: 1.05rem; color: #ffb380; }
+    .funnel p { margin: 0 0 1rem; color: #a8c0d8; font-size: 0.92rem; line-height: 1.5; }
     .more { margin-top: 2.5rem; }
     .more h3 { font-size: 1rem; color: #ff8c42; margin-bottom: 0.6rem; }
     .links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .links a { color: #cfe0f0; text-decoration: none; border: 1px solid #36506e; padding: 0.5rem 0.9rem; border-radius: 6px; font-size: 0.88rem; }
     .links a:hover { background: rgba(255,255,255,0.06); }
+    .links a.cta { border-color: #ff8c42; color: #ffd4b8; }
     footer { margin-top: 2.5rem; font-size: 0.8rem; color: #667; line-height: 1.6; }
     .note { font-size: 0.82rem; color: #8899aa; margin-top: 1.5rem; }
   </style>
@@ -71,6 +84,12 @@
       Free browser games where the pixel art generates itself in code — no asset packs, no downloads.
       Click a title and play instantly.
     </p>
+
+    <div class="hero-cta">
+      <a class="btn primary" href="https://subtiliorars.itch.io/jimmythehat-pixelsports">▶ Play free on itch.io</a>
+      <a class="btn secondary" href="play/index.html">Play on GitHub Pages</a>
+      <a class="btn secondary" href="launch/playtest/">Join the playtest</a>
+    </div>
 
     <div class="games">
       <div class="card">
@@ -111,6 +130,19 @@
         </p>
         <div class="controls">Tap cards · [E] end end · [W] weight · Fullscreen top-right</div>
         <a class="btn primary" href="play/games/curling/index.html">▶ Open Curling preview</a>
+      </div>
+    </div>
+
+    <div class="funnel">
+      <h3>Help shape the next builds</h3>
+      <p>
+        PixelSports is in active playtest. Try a game above, then tell us what broke — or grab
+        ready-to-send copy if you are recruiting testers for your community.
+      </p>
+      <div class="links">
+        <a class="cta" href="launch/playtest/">Playtest feedback loop</a>
+        <a class="cta" href="launch/recruit/">Recruitment kit</a>
+        <a href="https://subtiliorars.itch.io/jimmythehat-pixelsports">Follow on itch.io</a>
       </div>
     </div>
 

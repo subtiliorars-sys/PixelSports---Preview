@@ -31,3 +31,8 @@ Hosted on Cloudflare Pages project `pixelsports`.
 
 After DNS propagates, `https://pixelsports.us` serves this repo. GitHub Pages remains available at
 `https://subtiliorars-sys.github.io/PixelSports---Preview/` as a fallback mirror.
+
+## Fleet
+
+- **HQ:** [subtiliorars-sys/PixelSports](https://github.com/subtiliorars-sys/PixelSports) *(private — org members only)*
+- **Connectome:** [subtiliorars-sys/neural-network — `connectome/`](https://github.com/subtiliorars-sys/neural-network/tree/main/connectome) (`repos.yaml`, `fleet-kanban.yaml`)
